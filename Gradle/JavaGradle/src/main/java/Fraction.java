@@ -39,20 +39,30 @@ public class Fraction {
 
    public static void main (String args[]) {
       try {
+        if (args.length != 2) {
+            System.out.println("Please provide exactly two arguments: numerator and denominator.");
+            System.exit(0);
+        }
+
+        int numerator = Integer.parseInt(args[0]);
+        int denominator = Integer.parseInt(args[1]);
+
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
 
          // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
+         frac.setNumerator(numerator);
+         frac.setDenominator(denominator);
 
          // print it
          System.out.print("The fraction is: ");
          frac.print();
          System.out.println("");
 
-      }catch(Exception e) {
+      } catch (NumberFormatException e) {
+        System.out.println("Both arguments must be integers.");
+      } catch (Exception e) {
          e.printStackTrace();
       }
    }
