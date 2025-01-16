@@ -39,16 +39,17 @@ public class Fraction {
 
    public static void main (String args[]) {
       try {
-        if (args.length != 2) {
-            System.out.println("Please provide exactly two arguments: numerator and denominator.");
-            System.exit(0);
-        }
+         int numerator = 1;
+         int denominator = 1;
 
-        int numerator = Integer.parseInt(args[0]);
-        int denominator = Integer.parseInt(args[1]);
+         if (args.length > 0) {
+            numerator = Integer.parseInt(args[0]);
+         }
+         if (args.length > 1) {
+            denominator = Integer.parseInt(args[1]);
+         }
 
          // create a new instance
-         // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
 
          // set the values
@@ -61,7 +62,7 @@ public class Fraction {
          System.out.println("");
 
       } catch (NumberFormatException e) {
-        System.out.println("Both arguments must be integers.");
+         System.out.println("Both arguments must be integers.");
       } catch (Exception e) {
          e.printStackTrace();
       }
